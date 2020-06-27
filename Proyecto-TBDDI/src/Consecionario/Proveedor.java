@@ -10,6 +10,7 @@ package Consecionario;
  * @author migue
  */
 public class Proveedor {
+
     int idProveedor;
     String nombre;
     String contacto;
@@ -81,7 +82,5 @@ public class Proveedor {
     public String toString() {
         return "Proveedor{" + "idProveedor=" + idProveedor + ", nombre=" + nombre + ", contacto=" + contacto + ", telefono=" + telefono + ", correo=" + correo + ", status=" + status + '}';
     }
-    
-    
-    
+
 }

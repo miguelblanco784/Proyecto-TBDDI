@@ -10,6 +10,7 @@ package Consecionario;
  * @author migue
  */
 public class Proveedor_Has_Pieza {
+
     int idProveedor;
     int idPieza;
 
@@ -41,6 +42,5 @@ public class Proveedor_Has_Pieza {
     public String toString() {
         return "Proveedor_Has_Pieza{" + "idProveedor=" + idProveedor + ", idPieza=" + idPieza + '}';
     }
-    
-    
+
 }
