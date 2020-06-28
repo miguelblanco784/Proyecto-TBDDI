@@ -1,5 +1,9 @@
 package proyecto.tbddi;
 
+import dbmanager.Conexion;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class Main extends javax.swing.JFrame {
 
     /**
@@ -7,6 +11,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         Conexion c = new Conexion();
+        c.getCon();
         initComponents();
     }
 
@@ -14,9 +19,13 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        jd_CRUD = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_concesionario = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -35,20 +44,48 @@ public class Main extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
+        jd_crearconcesionario = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jl_nombrecon = new javax.swing.JLabel();
+        tf_correocon = new javax.swing.JTextField();
+        jl_correocon = new javax.swing.JLabel();
+        jl_telefonocon = new javax.swing.JLabel();
+        tf_telefonocon = new javax.swing.JTextField();
+        tf_nombrecon = new javax.swing.JTextField();
+        jb_crearcon = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
-        );
+        jd_CRUD.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tb_concesionario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tb_concesionario);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 986, 450));
+
+        jButton2.setText("Modificar");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 150, 80));
+
+        jButton3.setText("Crear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 150, 80));
+
+        jTabbedPane1.addTab("Concesionario", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -284,20 +321,79 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab19", jPanel19);
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jd_CRUD.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("Concesionario");
+
+        jl_nombrecon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jl_nombrecon.setText("Nombre");
+
+        tf_correocon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jl_correocon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jl_correocon.setText("Correo");
+
+        jl_telefonocon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jl_telefonocon.setText("Telefono");
+
+        tf_telefonocon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        tf_nombrecon.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jb_crearcon.setText("Crear");
+        jb_crearcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_crearconActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_crearconcesionarioLayout = new javax.swing.GroupLayout(jd_crearconcesionario.getContentPane());
+        jd_crearconcesionario.getContentPane().setLayout(jd_crearconcesionarioLayout);
+        jd_crearconcesionarioLayout.setHorizontalGroup(
+            jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_crearconcesionarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addGroup(jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jd_crearconcesionarioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jb_crearcon, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearconcesionarioLayout.createSequentialGroup()
+                        .addComponent(jl_correocon)
+                        .addGap(23, 23, 23)
+                        .addComponent(tf_correocon))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearconcesionarioLayout.createSequentialGroup()
+                        .addComponent(jl_telefonocon)
+                        .addGap(11, 11, 11)
+                        .addComponent(tf_telefonocon))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearconcesionarioLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 181, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_crearconcesionarioLayout.createSequentialGroup()
+                        .addComponent(jl_nombrecon)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_nombrecon)))
                 .addContainerGap())
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jd_crearconcesionarioLayout.setVerticalGroup(
+            jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearconcesionarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addGroup(jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_nombrecon)
+                    .addComponent(tf_nombrecon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_correocon)
+                    .addComponent(tf_correocon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_crearconcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_telefonocon)
+                    .addComponent(tf_telefonocon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(jb_crearcon, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -328,12 +424,31 @@ public class Main extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
+
+        jd_CRUD.setModal(true);
+        jd_CRUD.pack();
+        jd_CRUD.setLocationRelativeTo(this);
+        jd_CRUD.setVisible(true);
+
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jb_crearconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_crearconActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_crearconActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jd_crearconcesionario.setModal(true);
+        jd_crearconcesionario.pack();
+        jd_crearconcesionario.setLocationRelativeTo(this);
+        jd_crearconcesionario.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -369,7 +484,9 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -389,6 +506,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_crearcon;
+    private javax.swing.JDialog jd_CRUD;
+    private javax.swing.JDialog jd_crearconcesionario;
+    private javax.swing.JLabel jl_correocon;
+    private javax.swing.JLabel jl_nombrecon;
+    private javax.swing.JLabel jl_telefonocon;
+    private javax.swing.JTable tb_concesionario;
+    private javax.swing.JTextField tf_correocon;
+    private javax.swing.JTextField tf_nombrecon;
+    private javax.swing.JTextField tf_telefonocon;
     // End of variables declaration//GEN-END:variables
 }

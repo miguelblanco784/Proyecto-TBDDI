@@ -13,18 +13,18 @@ public class Concesionario {
 
     int idConsecionario;
     String nombre;
-    String status;
-    String concecionarioCol;
+    char status;
+    String correo;
     String telefono;
 
     public Concesionario() {
     }
 
-    public Concesionario(int idConsecionario, String nombre, String status, String concecionarioCol, String telefono) {
+    public Concesionario(int idConsecionario, String nombre, char status, String correo, String telefono) {
         this.idConsecionario = idConsecionario;
         this.nombre = nombre;
         this.status = status;
-        this.concecionarioCol = concecionarioCol;
+        this.correo = correo;
         this.telefono = telefono;
     }
 
@@ -44,20 +44,20 @@ public class Concesionario {
         this.nombre = nombre;
     }
 
-    public String getStatus() {
+    public char getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(char status) {
         this.status = status;
     }
 
     public String getConcecionarioCol() {
-        return concecionarioCol;
+        return correo;
     }
 
     public void setConcecionarioCol(String concecionarioCol) {
-        this.concecionarioCol = concecionarioCol;
+        this.correo = concecionarioCol;
     }
 
     public String getTelefono() {
@@ -70,7 +70,7 @@ public class Concesionario {
 
     @Override
     public String toString() {
-        return "Concesionario{" + "idConsecionario=" + idConsecionario + ", nombre=" + nombre + ", status=" + status + ", concecionarioCol=" + concecionarioCol + ", telefono=" + telefono + '}';
+        return "Concesionario{" + "idConsecionario=" + idConsecionario + ", nombre=" + nombre + ", status=" + status + ", concecionarioCol=" + correo + ", telefono=" + telefono + '}';
     }
     
     

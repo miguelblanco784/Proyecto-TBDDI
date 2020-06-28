@@ -13,16 +13,14 @@ public class Persona {
 
     char sexo;
     double ingreso;
-    String personacol;
     int id_cliente;
 
     public Persona() {
     }
 
-    public Persona(char sexo, double ingreso, String personacol, int id_cliente) {
+    public Persona(char sexo, double ingreso,  int id_cliente) {
         this.sexo = sexo;
         this.ingreso = ingreso;
-        this.personacol = personacol;
         this.id_cliente = id_cliente;
     }
 
@@ -42,13 +40,6 @@ public class Persona {
         this.ingreso = ingreso;
     }
 
-    public String getPersonacol() {
-        return personacol;
-    }
-
-    public void setPersonacol(String personacol) {
-        this.personacol = personacol;
-    }
 
     public int getId_cliente() {
         return id_cliente;
@@ -60,7 +51,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "sexo=" + sexo + ", ingreso=" + ingreso + ", personacol=" + personacol + ", id_cliente=" + id_cliente + '}';
+        return "Persona{" + "sexo=" + sexo + ", ingreso=" + ingreso  + ", id_cliente=" + id_cliente + '}';
     }
 
 }
