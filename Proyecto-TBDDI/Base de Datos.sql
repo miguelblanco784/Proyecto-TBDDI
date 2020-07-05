@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: teoriabdd
+-- Host: localhost    Database: teoriabdd
 -- ------------------------------------------------------
 -- Server version	8.0.20
 
@@ -65,6 +65,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'Luis Gerardo','9999999',1),(2,'Miguel Blanco','88888888',2);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,7 +106,7 @@ CREATE TABLE `concesionario` (
   `idConcesionario` int NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Status` varchar(1) DEFAULT NULL,
-  `Concesionariocol` varchar(45) DEFAULT NULL,
+  `Correo` varchar(45) DEFAULT NULL,
   `Telefono` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idConcesionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -117,6 +118,7 @@ CREATE TABLE `concesionario` (
 
 LOCK TABLES `concesionario` WRITE;
 /*!40000 ALTER TABLE `concesionario` DISABLE KEYS */;
+INSERT INTO `concesionario` VALUES (1,'BMW Luxury Motors','0','bmw@luxury.com','800-800-800'),(2,'BMW Tampa','0','bmw@tampa.com','801-801-801'),(3,'BMW SPS','0','bmw@sps.com','501-501-501'),(4,'BMW TGU','0','bmw@tgu.com','502-502-502'),(5,'BMW Praga','0','bmw@praga.com','909-909-909');
 /*!40000 ALTER TABLE `concesionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,6 +145,7 @@ CREATE TABLE `concesionario_has_marca` (
 
 LOCK TABLES `concesionario_has_marca` WRITE;
 /*!40000 ALTER TABLE `concesionario_has_marca` DISABLE KEYS */;
+INSERT INTO `concesionario_has_marca` VALUES (2,1);
 /*!40000 ALTER TABLE `concesionario_has_marca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,6 +197,7 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+INSERT INTO `empresa` VALUES ('Bufete Legal',1);
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,6 +283,7 @@ CREATE TABLE `marca` (
 
 LOCK TABLES `marca` WRITE;
 /*!40000 ALTER TABLE `marca` DISABLE KEYS */;
+INSERT INTO `marca` VALUES (1,'Rolls Royce',0),(2,'Mini',0);
 /*!40000 ALTER TABLE `marca` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +355,6 @@ DROP TABLE IF EXISTS `persona`;
 CREATE TABLE `persona` (
   `Sexo` varchar(1) NOT NULL,
   `Ingreso` double DEFAULT NULL,
-  `Personacol` varchar(45) DEFAULT NULL,
   `Clientes_idClientes` int NOT NULL,
   KEY `fk_Persona_Clientes1` (`Clientes_idClientes`),
   CONSTRAINT `fk_Persona_Clientes1` FOREIGN KEY (`Clientes_idClientes`) REFERENCES `clientes` (`idClientes`)
@@ -363,6 +367,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
+INSERT INTO `persona` VALUES ('M',200000.1,1);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -532,4 +537,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-26  7:44:06
+-- Dump completed on 2020-07-05 15:56:30

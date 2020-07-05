@@ -52,12 +52,12 @@ public class Concesionario {
         this.status = status;
     }
 
-    public String getConcecionarioCol() {
+    public String getCorreo() {
         return correo;
     }
 
-    public void setConcecionarioCol(String concecionarioCol) {
-        this.correo = concecionarioCol;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getTelefono() {
@@ -72,6 +72,5 @@ public class Concesionario {
     public String toString() {
         return "Concesionario{" + "idConsecionario=" + idConsecionario + ", nombre=" + nombre + ", status=" + status + ", concecionarioCol=" + correo + ", telefono=" + telefono + '}';
     }
-    
-    
+
 }

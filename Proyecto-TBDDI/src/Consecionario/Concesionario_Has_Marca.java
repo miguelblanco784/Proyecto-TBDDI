@@ -9,17 +9,17 @@ package Consecionario;
  *
  * @author migue
  */
-public class Consecionario_Has_Marca {
+public class Concesionario_Has_Marca {
 
     int idConsecionario;
     int idMarca;
 
-    public Consecionario_Has_Marca(int idConsecionario, int idMarca) {
+    public Concesionario_Has_Marca(int idConsecionario, int idMarca) {
         this.idConsecionario = idConsecionario;
         this.idMarca = idMarca;
     }
 
-    public Consecionario_Has_Marca() {
+    public Concesionario_Has_Marca() {
     }
 
     public int getIdConsecionario() {
