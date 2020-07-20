@@ -5,7 +5,7 @@
  */
 package dbmanager.dao;
 
-import Concesionario.Empresa;
+import Concesionario.Vehiculo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,23 +17,22 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author migue
  */
-public class EmpresaDAO {
+public class VehiculoDAO {
+        String mensaje = "";
 
-    String mensaje = "";
-
-    public String agregarEMPRESA(Connection con, Empresa conce) {
+    public String agregarVehiculo(Connection con, Vehiculo conce) {
         PreparedStatement pst = null;
-        String x = "(select idEMPRESA from EMPRESA ORDER BY idEMPRESA DESC LIMIT 1)";
+        String x = "(select idVehiculo from Vehiculo ORDER BY idVehiculo DESC LIMIT 1)";
 
-        String sql = "INSERT INTO EMPRESA "
-                + "VALUES(?,?)";
-
+        String sql = "INSERT INTO Vehiculo(VIN,PRECIO,STATUS,MODELO_IDMODELO,PLANTA_IDPLANTA)"
+                + "VALUES(?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
-
-            pst.setString(1, "" + conce.getTipo_empresa());
-            pst.setInt(2, conce.getIdClientes());
-
+            pst.setInt(1, conce.getVIN());
+            pst.setInt(2, conce.getPrecio());
+            pst.setInt(3, conce.getStatus());
+            pst.setInt(4, conce.getIdModelo());
+            pst.setInt(5, conce.getIdPlanta());
             pst.execute();
             pst.close();
 
@@ -44,17 +43,19 @@ public class EmpresaDAO {
         return mensaje;
     }
 
-    public String modificarEMPRESA(Connection con, Empresa conce) {
+    public String modificarVehiculo(Connection con, Vehiculo conce) {
         PreparedStatement pst = null;
-        String x = "(select idEMPRESA from EMPRESA ORDER BY idEMPRESA DESC LIMIT 1)";
+        String x = "(select idVehiculo from Vehiculo ORDER BY idVehiculo DESC LIMIT 1)";
 
-        String sql = "UPDATE EMPRESA SET TIPO_EMPRESA = ?"
-                + "WHERE idClientes = ?";
+        String sql = "UPDATE Vehiculo SET Precio = ?, Status = ?, idModelo = ?, idPlanta = ?"
+                + "WHERE VIN = ?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, "" + conce.getTipo_empresa());
-            pst.setInt(2, conce.getIdClientes());
-
+            pst.setInt(5, conce.getVIN());
+            pst.setInt(1, conce.getPrecio());
+            pst.setInt(2, conce.getStatus());
+            pst.setInt(3, conce.getIdModelo());
+            pst.setInt(4, conce.getIdPlanta());
             pst.execute();
             pst.close();
 
@@ -65,18 +66,18 @@ public class EmpresaDAO {
         return mensaje;
     }
 
-    public String eliminarEMPRESA(Connection con, int id) {
+    public String eliminarVehiculo(Connection con, int id) {
         return mensaje;
     }
 
-    public void listarEMPRESA(Connection con, JTable tabla) {
+    public void listarVehiculo(Connection con, JTable tabla) {
         DefaultTableModel model;
-        String[] columnas = {"Tipo Empresa", "ID Cliente"};
+        String[] columnas = {"VIN", "Precio", "Status", "IdModelo", "IdPlanta"};
         model = new DefaultTableModel(null, columnas);
 
-        String sql = "select * from EMPRESA";
+        String sql = "select * from Vehiculo";
 
-        String[] filas = new String[3];
+        String[] filas = new String[5];
         Statement st = null;
         ResultSet rs = null;
 
@@ -84,7 +85,7 @@ public class EmpresaDAO {
             st = con.createStatement();
             rs = st.executeQuery(sql);
             while (rs.next()) {
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 5; i++) {
                     filas[i] = rs.getString(i + 1);
                 }
                 model.addRow(filas);

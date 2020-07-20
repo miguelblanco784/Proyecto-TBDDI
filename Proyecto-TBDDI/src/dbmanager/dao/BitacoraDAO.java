@@ -5,34 +5,37 @@
  */
 package dbmanager.dao;
 
-import Concesionario.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import proyecto.tbddi.Bitacora;
 
 /**
  *
  * @author migue
  */
-public class EmpresaDAO {
+public class BitacoraDAO {
 
     String mensaje = "";
 
-    public String agregarEMPRESA(Connection con, Empresa conce) {
+    public String agregarBitacora(Connection con, Bitacora conce) {
         PreparedStatement pst = null;
-        String x = "(select idEMPRESA from EMPRESA ORDER BY idEMPRESA DESC LIMIT 1)";
+        String x = "(select idBitacora from Bitacora ORDER BY idBitacora DESC LIMIT 1)";
 
-        String sql = "INSERT INTO EMPRESA "
+        String sql = "INSERT INTO Bitacora "
                 + "VALUES(?,?)";
 
         try {
             pst = con.prepareStatement(sql);
 
-            pst.setString(1, "" + conce.getTipo_empresa());
-            pst.setInt(2, conce.getIdClientes());
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            pst.setString(1, dateFormat.format(conce.getFecha()));
+            pst.setString(2, conce.getAccion());
 
             pst.execute();
             pst.close();
@@ -44,16 +47,17 @@ public class EmpresaDAO {
         return mensaje;
     }
 
-    public String modificarEMPRESA(Connection con, Empresa conce) {
+    public String modificarBitacora(Connection con, Bitacora conce) {
         PreparedStatement pst = null;
-        String x = "(select idEMPRESA from EMPRESA ORDER BY idEMPRESA DESC LIMIT 1)";
+        String x = "(select idBitacora from Bitacora ORDER BY idBitacora DESC LIMIT 1)";
 
-        String sql = "UPDATE EMPRESA SET TIPO_EMPRESA = ?"
-                + "WHERE idClientes = ?";
+        String sql = "UPDATE Bitacora SET Accion = ?"
+                + "WHERE Fecha = ?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, "" + conce.getTipo_empresa());
-            pst.setInt(2, conce.getIdClientes());
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+            pst.setString(2, dateFormat.format(conce.getFecha()));
+            pst.setString(1, conce.getAccion());
 
             pst.execute();
             pst.close();
@@ -65,16 +69,16 @@ public class EmpresaDAO {
         return mensaje;
     }
 
-    public String eliminarEMPRESA(Connection con, int id) {
+    public String eliminarBitacora(Connection con, int id) {
         return mensaje;
     }
 
-    public void listarEMPRESA(Connection con, JTable tabla) {
+    public void listarBitacora(Connection con, JTable tabla) {
         DefaultTableModel model;
-        String[] columnas = {"Tipo Empresa", "ID Cliente"};
+        String[] columnas = {"Fecha", "Accion"};
         model = new DefaultTableModel(null, columnas);
 
-        String sql = "select * from EMPRESA";
+        String sql = "select * from Bitacora";
 
         String[] filas = new String[3];
         Statement st = null;
@@ -93,6 +97,5 @@ public class EmpresaDAO {
         } catch (Exception e) {
             System.out.println("Ocurrio un error" + e);
         }
-
     }
 }

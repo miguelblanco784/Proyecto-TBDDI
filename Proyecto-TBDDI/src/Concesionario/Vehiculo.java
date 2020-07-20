@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consecionario;
+package Concesionario;
 
 /**
  *
@@ -12,7 +12,7 @@ package Consecionario;
 public class Vehiculo {
 
     int VIN;
-    int prcio;
+    int precio;
     int status;
     int idModelo;
     int idPlanta;
@@ -20,9 +20,9 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(int VIN, int prcio, int status, int idModelo, int idPlanta) {
+    public Vehiculo(int VIN, int precio, int status, int idModelo, int idPlanta) {
         this.VIN = VIN;
-        this.prcio = prcio;
+        this.precio = precio;
         this.status = status;
         this.idModelo = idModelo;
         this.idPlanta = idPlanta;
@@ -36,12 +36,12 @@ public class Vehiculo {
         this.VIN = VIN;
     }
 
-    public int getPrcio() {
-        return prcio;
+    public int getPrecio() {
+        return precio;
     }
 
-    public void setPrcio(int prcio) {
-        this.prcio = prcio;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public int getStatus() {
@@ -70,7 +70,7 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "VIN=" + VIN + ", prcio=" + prcio + ", status=" + status + ", idModelo=" + idModelo + ", idPlanta=" + idPlanta + '}';
+        return "Vehiculo{" + "VIN=" + VIN + ", precio=" + precio + ", status=" + status + ", idModelo=" + idModelo + ", idPlanta=" + idPlanta + '}';
     }
 
 }

@@ -5,7 +5,7 @@
  */
 package dbmanager.dao;
 
-import Consecionario.Persona;
+import Concesionario.Persona;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

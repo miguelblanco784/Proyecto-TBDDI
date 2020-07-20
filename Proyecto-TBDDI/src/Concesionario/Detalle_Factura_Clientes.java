@@ -3,22 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consecionario;
+package Concesionario;
 
 /**
  *
  * @author migue
  */
-public class Detalla_Factura_Clientes {
+public class Detalle_Factura_Clientes {
 
     int precio;
     int idFactura_Clientes;
     int idInventario_Concecionario;
+    int VIN;
 
-    public Detalla_Factura_Clientes() {
+    public int getVIN() {
+        return VIN;
     }
 
-    public Detalla_Factura_Clientes(int precio, int idFactura_Clientes, int idInventario_Concecionario) {
+    public void setVIN(int VIN) {
+        this.VIN = VIN;
+    }
+
+    public Detalle_Factura_Clientes() {
+    }
+
+    public Detalle_Factura_Clientes(int precio, int idFactura_Clientes, int idInventario_Concecionario) {
         this.precio = precio;
         this.idFactura_Clientes = idFactura_Clientes;
         this.idInventario_Concecionario = idInventario_Concecionario;

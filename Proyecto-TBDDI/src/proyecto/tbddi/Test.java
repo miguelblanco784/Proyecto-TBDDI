@@ -5,7 +5,7 @@
  */
 package proyecto.tbddi;
 
-import Consecionario.Concesionario;
+import Concesionario.Concesionario;
 import dbmanager.Conexion;
 import dbmanager.bo.TeoriaBDDBO;
 import java.sql.Connection;

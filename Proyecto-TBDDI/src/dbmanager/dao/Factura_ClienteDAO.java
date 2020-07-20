@@ -5,11 +5,14 @@
  */
 package dbmanager.dao;
 
-import Consecionario.Factura_Clientes;
+import Concesionario.Factura_Clientes;
 import java.sql.Connection;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.util.Date;
 
 /**
  *
@@ -23,17 +26,23 @@ public class Factura_ClienteDAO {
         PreparedStatement pst = null;
         String x = "(select idFactura_Clientes from Factura_Clientes ORDER BY idFactura_Clientes DESC LIMIT 1)";
 
-        String sql = "INSERT INTO Factura_Clientes"
+        String sql = "INSERT INTO FACTURA_CLIENTES(idFactura_Clientes,Fecha,Total,Impuesto,SubTotal,Concesionario_idConcesionario,Clientes_idClientes)"
                 + "VALUES(?,?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
+
             pst.setInt(1, conce.getIdFactura_Clientes());
-            pst.setDate(2, conce.getFecha());
-            pst.setString(3, "" + conce.getTotal());
-            pst.setString(4, conce.getImpuesto());
-            pst.setString(5, conce.getSubtotal());
+
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
+            pst.setDate(2, java.sql.Date.valueOf(dateFormat.format(conce.getFecha())));
+
+            pst.setDouble(3, conce.getTotal());
+            pst.setDouble(4, conce.getImpuesto());
+            pst.setDouble(5, conce.getSubtotal());
             pst.setInt(6, conce.getIdConcesionario());
             pst.setInt(7, conce.getIdClientes());
+
             pst.execute();
             pst.close();
 
@@ -53,7 +62,7 @@ public class Factura_ClienteDAO {
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(3, conce.getIdFactura_Clientes());
-            pst.setString(1, conce.getTotal());
+            pst.setString(1, "" + conce.getTotal());
             pst.setString(2, "" + conce.getSubtotal());
             pst.execute();
             pst.close();
@@ -66,6 +75,7 @@ public class Factura_ClienteDAO {
     }
 
     public String eliminarFactura_Clientes(Connection con, int id) {
+
         return mensaje;
     }
 

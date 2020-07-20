@@ -5,7 +5,7 @@
  */
 package dbmanager.dao;
 
-import Consecionario.Concesionario;
+import Concesionario.Concesionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +48,7 @@ public class ConcesionarioDAO {
         PreparedStatement pst = null;
         String x = "(select idConcesionario from concesionario ORDER BY idConcesionario DESC LIMIT 1)";
         
-        String sql = "UPDATE CONSECIONARIO SET Nombre = ?, Status = ?, Correo = ?, Telefono = ?"
+        String sql = "UPDATE CONCESIONARIO SET Nombre = ?, Status = ?, Correo = ?, Telefono = ?"
                 + "WHERE idConcesionario = ?";
         try {
             pst = con.prepareStatement(sql);

@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consecionario;
+package Concesionario;
 
 /**
  *
  * @author migue
  */
-public class Pieza {
+public class Pieza_Has_Modelo {
 
     int idPieza;
-    String nombre;
+    int idModelo;
 
-    public Pieza() {
+    public Pieza_Has_Modelo() {
     }
 
-    public Pieza(int idPieza, String nombre) {
+    public Pieza_Has_Modelo(int idPieza, int idModelo) {
         this.idPieza = idPieza;
-        this.nombre = nombre;
+        this.idModelo = idModelo;
     }
 
     public int getIdPieza() {
@@ -30,17 +30,17 @@ public class Pieza {
         this.idPieza = idPieza;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getIdModelo() {
+        return idModelo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIdModelo(int idModelo) {
+        this.idModelo = idModelo;
     }
 
     @Override
     public String toString() {
-        return "Pieza{" + "idPieza=" + idPieza + ", nombre=" + nombre + '}';
+        return "Pieza_Has_Modelo{" + "idPieza=" + idPieza + ", idModelo=" + idModelo + '}';
     }
 
 }

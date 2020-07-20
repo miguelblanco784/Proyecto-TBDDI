@@ -1,4 +1,4 @@
-package Consecionario;
+package Concesionario;
 
 public class Tipo_Empresa {
 

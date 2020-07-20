@@ -8,7 +8,7 @@ package dbmanager.dao;
 import java.sql.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import Consecionario.Concesionario_Has_Marca;
+import Concesionario.Concesionario_Has_Marca;
 
 /**
  *

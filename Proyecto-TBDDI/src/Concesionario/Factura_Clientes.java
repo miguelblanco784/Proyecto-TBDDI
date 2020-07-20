@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consecionario;
+package Concesionario;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -15,21 +15,21 @@ public class Factura_Clientes {
 
     int idFactura_Clientes;
     Date fecha;
-    String total;
-    String impuesto;
-    String subtotal;
+    Double total;
+    Double impuesto;
+    Double subtotal;
     int idConcesionario;
     int idClientes;
 
     public Factura_Clientes() {
     }
 
-    public Factura_Clientes(int idFactura_Clientes, Date fecha, String total, String impuesto, String subtotal, int idConcesionario, int idClientes) {
+    public Factura_Clientes(int idFactura_Clientes, Double total, Double impuesto, int idConcesionario, int idClientes) {
         this.idFactura_Clientes = idFactura_Clientes;
-        this.fecha = fecha;
+        this.fecha = new Date();
         this.total = total;
         this.impuesto = impuesto;
-        this.subtotal = subtotal;
+        this.subtotal = total+impuesto;
         this.idConcesionario = idConcesionario;
         this.idClientes = idClientes;
     }
@@ -50,27 +50,27 @@ public class Factura_Clientes {
         this.fecha = fecha;
     }
 
-    public String getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
-    public String getImpuesto() {
+    public Double getImpuesto() {
         return impuesto;
     }
 
-    public void setImpuesto(String impuesto) {
+    public void setImpuesto(Double impuesto) {
         this.impuesto = impuesto;
     }
 
-    public String getSubtotal() {
+    public Double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(String subtotal) {
+    public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
 
@@ -89,11 +89,8 @@ public class Factura_Clientes {
     public void setIdClientes(int idClientes) {
         this.idClientes = idClientes;
     }
-
-    @Override
-    public String toString() {
-        return "Factura_Clientes{" + "idFactura_Clientes=" + idFactura_Clientes + ", fecha=" + fecha + ", total=" + total + ", impuesto=" + impuesto + ", subtotal=" + subtotal + ", idConcesionario=" + idConcesionario + ", idClientes=" + idClientes + '}';
-    }
+    
+    
     
     
 }
